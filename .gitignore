@@ -1,0 +1,6 @@
+/archive
+/venv
+*.jpg
+*.txt
+archive.zip
+/runs/detect
