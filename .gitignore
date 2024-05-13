@@ -3,7 +3,7 @@
 *.jpg
 *.txt
 archive.zip
-/runs/detect
+/runs
 *.cache
 *.png
 *.pt
