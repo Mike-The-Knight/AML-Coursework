@@ -6,6 +6,9 @@ import shutil
 original_folder = 'archive/dataset'
 new_folder = 'archive/images'
 
+# Make sure the new images folder exists
+os.makedirs(new_folder, exist_ok=True)
+
 # Iterate over all files in the source folder
 for filename in os.listdir(original_folder):
     

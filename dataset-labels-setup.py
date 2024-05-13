@@ -14,7 +14,10 @@ import os
 
 # Old labels and new labels file paths
 csv_dir = 'archive/dataset'
-yolo_dir = 'archive/labels'
+labels_dir = 'archive/labels'
+
+# Make sure the labels directory exists
+os.makedirs(labels_dir, exist_ok=True)
 
 # Iterate over all files in the source folder
 for csv_file in os.listdir(csv_dir):
@@ -46,6 +49,6 @@ for csv_file in os.listdir(csv_dir):
         
         # Write it to a new .txt file with the YOLO label format
         for filename, annotations in yolo_data.items():
-            with open(os.path.join(yolo_dir, filename), 'w') as file:
+            with open(os.path.join(labels_dir, filename), 'w') as file:
                 file.write('\n'.join(annotations))
 
