@@ -4,3 +4,4 @@
 *.txt
 archive.zip
 /runs/detect
+*.cache

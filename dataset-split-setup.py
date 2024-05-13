@@ -11,10 +11,10 @@ dataset_base = 'datasets/dataset/'
 all_images = [f for f in os.listdir(source_images) if f.endswith('.jpg')]
 
 # Downsample to only use 20% of the images
-_, sampled_images = train_test_split(all_images, test_size=0.2, random_state=42)
+#_, sampled_images = train_test_split(all_images, test_size=0.2, random_state=42)
 
 # Split the downsampled dataset between test, train and validation
-train_images, test_images = train_test_split(sampled_images, test_size=0.1, random_state=42)  # 10% for testing
+train_images, test_images = train_test_split(all_images, test_size=0.1, random_state=42)  # 10% for testing
 train_images, val_images = train_test_split(train_images, test_size=1/9, random_state=42)  # 10% for validation
 
 # Ensure target directories exist
@@ -31,9 +31,9 @@ ensure_dirs([
 # Move files into the directories for each split
 def move_files(files, split):
     for file in files:
-        shutil.copy(source_images + file, dataset_base + f'{split}/images/{file}')
+        shutil.move(source_images + file, dataset_base + f'{split}/images/{file}')
         label_file = file.replace('.jpg', '.txt')
-        shutil.copy(source_labels + label_file, dataset_base + f'{split}/labels/{label_file}')
+        shutil.move(source_labels + label_file, dataset_base + f'{split}/labels/{label_file}')
 
 move_files(train_images, 'train')
 move_files(val_images, 'val')
