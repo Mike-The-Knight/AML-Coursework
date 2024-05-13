@@ -44,6 +44,7 @@ for csv_file in os.listdir(csv_dir):
             else:
                 yolo_data[filename] = [yolo_format]
         
+        # Write it to a new .txt file with the YOLO label format
         for filename, annotations in yolo_data.items():
             with open(os.path.join(yolo_dir, filename), 'w') as file:
                 file.write('\n'.join(annotations))

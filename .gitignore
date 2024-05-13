@@ -6,5 +6,4 @@ archive.zip
 /runs/detect
 *.cache
 *.png
-dataset.csv
 *.pt
