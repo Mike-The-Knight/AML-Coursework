@@ -2,7 +2,7 @@ import os
 import shutil
 from sklearn.model_selection import train_test_split
 
-# Define your paths
+# Define the paths to the dataset
 source_images = 'archive/images/'
 source_labels = 'archive/labels/'
 dataset_base = 'datasets/dataset/'
@@ -10,6 +10,7 @@ dataset_base = 'datasets/dataset/'
 # List of all images
 all_images = [f for f in os.listdir(source_images) if f.endswith('.jpg')]
 
+# THIS WAS USED FOR THE INITIAL EXPERIMENTS AND WE COMMENTED IT OUT AFTER TO USE THE FULL DATASET FOR A FULL RUN
 # Downsample to only use 20% of the images
 #_, sampled_images = train_test_split(all_images, test_size=0.2, random_state=42)
 
@@ -22,6 +23,7 @@ def ensure_dirs(paths):
     for path in paths:
         os.makedirs(path, exist_ok=True)
 
+# Make sure each directory is there before we move images and labels over
 ensure_dirs([
     dataset_base + 'train/images', dataset_base + 'train/labels',
     dataset_base + 'val/images', dataset_base + 'val/labels',

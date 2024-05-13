@@ -1,3 +1,4 @@
+# Define all the aircraft classes
 aircraft_classes = {
     'A10': 0, 'A400M': 1, 'AG600': 2, 'AV8B': 3, 'B1': 4, 'B2': 5, 'B52': 6, 'Be200': 7,
     'C130': 8, 'C17': 9, 'C2': 10, 'C5': 11, 'E2': 12, 'E7': 13, 'EF2000': 14, 'F117': 15,
@@ -18,8 +19,10 @@ yolo_dir = 'archive/labels'
 # Iterate over all files in the source folder
 for csv_file in os.listdir(csv_dir):
     if csv_file.endswith('.csv'):
+        # Load the csv file with all the labels
         df = pd.read_csv(os.path.join(csv_dir, csv_file))
         yolo_data = {}
+        # Iterate over all the rows in the dataframe
         for _, row in df.iterrows():
             filename = row['filename'] + '.txt'
             width, height = row['width'], row['height']
